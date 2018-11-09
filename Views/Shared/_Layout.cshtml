@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="nhs.uk app feedback for - allows users to submit information about the nhs uk app">
+
+        <title>@ViewData["Title"]</title>
+
+        <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
+        <link rel="preconnect  dns-prefetch" href="https://www.nhs.uk/">
+        <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
+
+        <link rel="stylesheet" href="/static/nhsuk-0.1.1.css">
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script src="/static/nhsuk-0.1.1.js" defer></script>
+
+        <!--[if IE]><link rel="shortcut icon" href="/static/assets/favicons/favicon.ico"><![endif]-->
+        <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+        <link rel="apple-touch-icon" href="/static/assets/favicons/apple-touch-icon.png">
+        <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+        <link rel="icon" href="/static/assets/favicons/favicon.png"> 
+    </head>
+
+    <body>
+        <script>
+            document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+        </script>
+
+        @RenderBody()
+    </body>
+</html>
