@@ -135,9 +135,30 @@
 
         </header>
  
-        <!-- Navigation  -->
+        <!-- Content -->
 
-        @RenderBody()
+        <section class="nhsuk-hero ">
+            <div class="nhsuk-width-container nhsuk-hero--border">
+                <div class="nhsuk-grid-row">
+                    <div class="nhsuk-grid-column-two-thirds">
+                        <div class="nhsuk-hero__wrapper">
+                            <h1 class="nhsuk-!-margin-bottom-3">@ViewData["Title"]</h1>
+
+                            @if(ViewData["Description"] != null){
+                            <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">@ViewData["Description"]</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-two-thirds">
+                @RenderBody()
+            </div>
+        </div>
+
 
         <!-- NHS Footer  -->
 
