@@ -1,4 +1,127 @@
 @{
     ViewData["Title"] = "NHS App Feedback";
-    ViewData["Description"] = "Please provide feedback about the NHS application";
+    ViewData["Description"] = new String[] {
+        "Please provide as much information as possible in order for us to process your feedback more effectively.",
+        "Please do not enter patient or personal data (such as NHS number, home address, telephone number, date of birth, National Insurance number etc.)"
+    };
 }
+
+
+@*
+
+## Form layout:
+
+- What do you want to tell us about?
+    - Mandatory 
+    - Dropdown : Feedback, Issue, Other
+    - Enter You answer
+      - This is only displayed if "What do you wnt to tell us about?"
+        is set to 'Other'.
+      - Q. If this is displayed is this mandatory?
+- Your comments
+  - Mandatory
+  - Maximum length 1500 characters
+- Your name
+- Your email address
+    - Mandatory
+- Privacy Policy Confirmation
+  - Mandatory.
+
+## Todo
+
+1. (done)Identify mandatory fields.
+  - Asked Ben and apparently we do not identify mandatory files.
+2. Enter your answer should only be displayed if the other
+   options has been selected.
+   Note - need to make this form work if javascript is not available
+
+*@
+
+<form>
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="about">
+            What do you want to tell us about?
+        </label>
+        <select class="nhsuk-select" id="about" name="about">
+          <option value="feedback" selected>Feedback</option>
+          <option value="issue">Issue</option>
+          <option value="other" data-conditional-input="about_other">Other</option>
+        </select>
+    </div>
+
+
+@*  Todo, optional field:
+
+    1. Get the grey marker to display
+    2. Size the input?? may not be needed
+
+    <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel">
+*@
+
+    <div class="nhsuk-option__conditional nhsuk-option__conditional--hidden" data-conditional-input-for="about_other">
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="about_other">
+                Enter your answer
+            </label>
+            <input class="nhsuk-input" id="about_other" name="about_other" type="text">
+        </div>
+    </div>
+
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="about_other">
+           Page URL 
+        </label>
+        <input class="nhsuk-input" id="about_other" name="about_other" type="text">
+    </div>
+
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="comments">
+            Your comments
+        </label>
+        <span id="more-detail-hint" class="nhsuk-hint">
+            maximum length 1500 characters
+        </span>
+        <span id="more-detail-hint" class="nhsuk-hint">
+            Please do not enter patient or personal data (such as NHS number, home address, telephone number, date of birth, National Insurance number etc.
+        </span>
+        <textarea class="nhsuk-textarea js-character-count " id="comments" name="comments" rows="8" aria-describedby="with-hint-hint"></textarea> 
+    </div>
+
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="your_name">
+            Your name
+        </label>
+        <input class="nhsuk-input" id="your_name" name="your_name" type="text">
+    </div>
+
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="email">
+            Your Email address
+        </label>
+        <span id="email-hint" class="nhsuk-hint">
+            We will only use your email address to communicate with you on the issue you have reported. Once resolved we will send you a short satisfaction survey to help us improve the service we provide
+        </span>
+        <input class="nhsuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+    </div>
+
+    <div class="nhsuk-form-group">
+        <label class="nhsuk-label">
+            You must confirm you have read and understood the privacy policy before submitting
+        </label>
+        <span id="email-hint" class="nhsuk-hint">
+            You can find more information about your rights and how we handle your data under the "NHS App Privacy Policy" section
+        </span>
+        <div class="nhsuk-checkboxes">
+            <div class="nhsuk-checkboxes__item">
+                <!-- todo-design: Tick is not styled correctly -->
+                <input class="nhsuk-checkboxes__input" id="privacy_policy_confirmed" name="privacy_policy_confirmed" type="checkbox" value="confirmed" >
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="privacy_policy_confirmed">
+                    I have read and understood the privacy policy and terms and conditions.
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="nhsuk-button">Submit</button>
+
+</form>

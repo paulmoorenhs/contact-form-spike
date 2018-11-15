@@ -13,6 +13,8 @@
         <link rel="preconnect  dns-prefetch" href="https://assets.nhs.uk/" crossorigin>
 
         <link rel="stylesheet" href="/static/nhsuk-0.1.1.css">
+        <link rel="stylesheet" href="/static/nhsuk-forms.css">
+        <script src="/static/nhsuk-forms.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -146,8 +148,12 @@
                             <h1 class="nhsuk-!-margin-bottom-3">@ViewData["Title"]</h1>
 
                             @if(ViewData["Description"] != null){
-                            <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">@ViewData["Description"]</p>
+                                foreach(var line in (string[])ViewData["Description"]) {
+                            <p class="nhsuk-body-l nhsuk-!-margin-bottom-0">@line</p>
+                            <br/>
+                                }
                             }
+                            <!-- todo-design: Spacing should be done via styling.  -->
                         </div>
                     </div>
                 </div>

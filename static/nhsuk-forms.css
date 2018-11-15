@@ -1,0 +1,804 @@
+/* form group
+ *
+ * Used to group lable and control
+ *
+ */
+.nhsuk-form-group{
+    margin-bottom:16px
+}:
+@media (min-width: 40.0625em){
+    .nhsuk-form-group{
+        margin-bottom:30px
+    }
+}
+.nhsuk-form-group .nhsuk-form-group:last-of-type{
+    margin-bottom:0
+}
+.nhsuk-form-group--error{
+    padding-left:15px;
+    border-left:5px solid #b10e1e
+}
+.nhsuk-form-group--error .nhsuk-form-group{
+    padding:0;
+    border:0
+}
+
+/* Labels
+ *
+ *  (todo) change the font to the nhs font
+ *
+ * */
+
+.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl)+.nhsuk-hint{
+    margin-bottom:10px
+}
+.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl)+.nhsuk-hint{
+    margin-bottom:10px
+}
+.nhsuk-fieldset__legend+.nhsuk-hint,.nhsuk-fieldset__legend+.nhsuk-hint{
+    margin-top:-5px
+}
+.nhsuk-label{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    display:block;
+    margin-bottom:5px
+}
+@media print{
+    .nhsuk-label{
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-label{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.31579
+    }
+}
+@media print{
+    .nhsuk-label{
+        font-size:14pt;
+        line-height:1.15
+    }
+}
+@media print{
+    .nhsuk-label{
+        color:#000
+    }
+}
+.nhsuk-label--xl{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:700;
+    font-size:32px;
+    font-size:2rem;
+    line-height:1.09375;
+    margin-bottom:15px
+}
+@media print{
+    .nhsuk-label--xl{
+        font-family:'Frutiger W01'
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-label--xl{
+        font-size:48px;
+        font-size:3rem;
+        line-height:1.04167
+    }
+}
+@media print{
+    .nhsuk-label--xl{
+        font-size:32pt;
+        line-height:1.15
+    }
+}
+.nhsuk-label--l{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:700;
+    font-size:24px;
+    font-size:1.5rem;
+    line-height:1.04167;
+    margin-bottom:15px
+}
+@media print{
+    .nhsuk-label--l{
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-label--l{
+        font-size:36px;
+        font-size:2.25rem;
+        line-height:1.11111
+    }
+}
+@media print{
+    .nhsuk-label--l{
+        font-size:24pt;
+        line-height:1.05
+    }
+}
+.nhsuk-label--m{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:700;
+    font-size:18px;
+    font-size:1.125rem;
+    line-height:1.11111;
+    margin-bottom:10px
+}
+@media print{
+    .nhsuk-label--m{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-label--m{
+        font-size:24px;
+        font-size:1.5rem;
+        line-height:1.25
+    }
+}
+@media print{
+    .nhsuk-label--m{
+        font-size:18pt;
+        line-height:1.15
+    }
+}
+.nhsuk-label--s{
+    font-family:'Frutiger W01',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:700;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25
+}
+@media print{
+    .nhsuk-label--s{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-label--s{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.31579
+    }
+}
+@media print{
+    .nhsuk-label--s{
+        font-size:14pt;
+        line-height:1.15
+    }
+}
+.nhsuk-label-wrapper{
+    margin:0
+}
+
+
+/* Dropdown lists ( Select )
+ *
+ * (todo) change to use nhs font
+ *
+*/
+.nhsuk-select{
+    font-family:'Frutiger W01',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    height:40px;
+    padding:5px;
+    border:2px solid #212B32
+}
+@media print{
+    .nhsuk-select{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-select{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.25
+    }
+}
+@media print{
+    .nhsuk-select{
+        font-size:14pt;
+        line-height:1.25
+    }
+}
+.nhsuk-select:focus{
+    outline:3px solid #ffbf47;
+    outline-offset:0
+}
+.nhsuk-select option:active,.nhsuk-select option:checked,.nhsuk-select:focus::-ms-value{
+    color:#fff;
+    background-color:#005ea5
+}
+.nhsuk-select--error{
+    border:4px solid #b10e1e
+}
+
+.nhsuk-option__conditional
+{
+  margin-bottom: 15px;
+  margin-left: 18px;
+  padding-left: 33px;
+  border-left: 4px solid #bfc1c3;
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-option__conditional
+  {
+    margin-bottom: 20px;
+  }
+}
+
+/*  Ensures that if javascript is not supported 
+    the field is not hidden 
+*/
+.js-enabled .nhsuk-option__conditional--hidden
+{
+  display: none;
+}
+
+.nhsuk-option__conditional>:last-child
+{
+  margin-bottom: 0;
+}
+
+/* Inputs
+*
+* (todo) change to use nhs font
+*
+*/
+.nhsuk-input{
+    font-family:'Frutiger W01',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:100%;
+    height:40px;
+    margin-top:0;
+    padding:5px;
+    border:2px solid #0b0c0c;
+    border-radius:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none
+}
+@media print{
+    .nhsuk-input{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-input{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.31579
+    }
+}
+@media print{
+    .nhsuk-input{
+        font-size:14pt;
+        line-height:1.15
+    }
+}
+.nhsuk-input:focus{
+    outline:3px solid #ffbf47;
+    outline-offset:0
+}
+.nhsuk-input::-webkit-outer-spin-button,.nhsuk-input::-webkit-inner-spin-button{
+    margin:0;
+    -webkit-appearance:none
+}
+.nhsuk-input[type="number"]{
+    -moz-appearance:textfield
+}
+.nhsuk-input--error{
+    border:4px solid #b10e1e
+}
+.nhsuk-input--width-30{
+    max-width:59ex
+}
+.nhsuk-input--width-20{
+    max-width:41ex
+}
+.nhsuk-input--width-10{
+    max-width:23ex
+}
+.nhsuk-input--width-5{
+    max-width:10.8ex
+}
+.nhsuk-input--width-4{
+    max-width:9ex
+}
+.nhsuk-input--width-3{
+    max-width:7.2ex
+}
+.nhsuk-input--width-2{
+    max-width:5.4ex
+}
+
+/* Text area 
+ *
+ * (todo) change to use nhs font
+ *
+*/
+.nhsuk-character-count .nhsuk-form-group,.nhsuk-character-count .nhsuk-textarea{
+    margin-bottom:5px
+}
+.nhsuk-character-count .nhsuk-textarea--error{
+    padding:3px
+}
+.nhsuk-textarea{
+    font-family:'Frutiger W01',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    display:block;
+    width:100%;
+    min-height:40px;
+    margin-bottom:20px;
+    padding:5px;
+    resize:vertical;
+    border:2px solid #0b0c0c;
+    border-radius:0;
+    -webkit-appearance:none
+}
+@media print{
+    .nhsuk-textarea{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-textarea{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.25
+    }
+}
+@media print{
+    .nhsuk-textarea{
+        font-size:14pt;
+        line-height:1.25
+    }
+}
+.nhsuk-textarea:focus{
+    outline:3px solid #ffbf47;
+    outline-offset:0
+}
+@media (min-width: 40.0625em){
+    .nhsuk-textarea{
+        margin-bottom:30px
+    }
+}
+.nhsuk-textarea--error{
+    border:4px solid #b10e1e
+}
+
+/* Field hints
+*
+* (todo) Change to use nhs font
+*
+*/
+.nhsuk-hint{
+    font-family:'Frutiger W01',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    display:block;
+    margin-bottom:15px;
+    color:#6f777b
+}
+@media print{
+    .nhsuk-hint{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .nhsuk-hint{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.31579
+    }
+}
+@media print{
+    .nhsuk-hint{
+        font-size:14pt;
+        line-height:1.15
+    }
+}
+
+/* Checkboxes
+*
+*
+*
+*/
+
+.nhsuk-checkboxes__item
+{
+  font-family: 'Frutiger W01',Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  display: block;
+  position: relative;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding: 0 0 0 40px;
+  clear: left;
+}
+
+@media print
+{
+  .nhsuk-checkboxes__item
+  {
+    font-family: sans-serif;
+  }
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-checkboxes__item
+  {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.31579;
+  }
+}
+
+@media print
+{
+  .nhsuk-checkboxes__item
+  {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+
+.nhsuk-checkboxes__item:last-child,.nhsuk-checkboxes__item:last-of-type
+{
+  margin-bottom: 0;
+}
+
+.nhsuk-checkboxes__input
+{
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+}
+
+.nhsuk-checkboxes__label
+{
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.nhsuk-checkboxes__hint
+{
+  display: block;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.nhsuk-checkboxes__input+.nhsuk-checkboxes__label::before
+{
+  content: "";
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid currentColor;
+  background: transparent;
+}
+
+.nhsuk-checkboxes__input+.nhsuk-checkboxes__label::after
+{
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 18px;
+  height: 7px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  opacity: 0;
+  background: transparent;
+}
+
+.nhsuk-checkboxes__input:focus+.nhsuk-checkboxes__label::before
+{
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  -webkit-box-shadow: 0 0 0 3px #ffbf47;
+  box-shadow: 0 0 0 3px #ffbf47;
+}
+
+.nhsuk-checkboxes__input:checked+.nhsuk-checkboxes__label::after
+{
+  opacity: 1;
+}
+
+.nhsuk-checkboxes__input:disabled,.nhsuk-checkboxes__input:disabled+.nhsuk-checkboxes__label
+{
+  cursor: default;
+}
+
+.nhsuk-checkboxes__input:disabled+.nhsuk-checkboxes__label
+{
+  opacity: .5;
+}
+
+.nhsuk-checkboxes__conditional
+{
+  margin-bottom: 15px;
+  margin-left: 18px;
+  padding-left: 33px;
+  border-left: 4px solid #bfc1c3;
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-checkboxes__conditional
+  {
+    margin-bottom: 20px;
+  }
+}
+
+.js-enabled .nhsuk-checkboxes__conditional--hidden
+{
+  display: none;
+}
+
+.nhsuk-checkboxes__conditional>:last-child
+{
+  margin-bottom: 0;
+}
+
+/* Buttons
+*
+*/
+.nhsuk-button
+{
+  font-family: 'Frutiger W01',Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.1875;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 7px 10px;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: #fff;
+  background-color: #00823b;
+  -webkit-box-shadow: 0 2px 0 #003618;
+  box-shadow: 0 2px 0 #003618;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+@media print
+{
+  .nhsuk-button
+  {
+    font-family: sans-serif;
+  }
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-button
+  {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1;
+  }
+}
+
+@media print
+{
+  .nhsuk-button
+  {
+    font-size: 14pt;
+    line-height: 19px;
+  }
+}
+
+.nhsuk-button:focus
+{
+  outline: 3px solid #ffbf47;
+  outline-offset: 0;
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-button
+  {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-button
+  {
+    width: auto;
+  }
+}
+
+.nhsuk-button:link,.nhsuk-button:visited,.nhsuk-button:active,.nhsuk-button:hover
+{
+  color: #fff;
+  text-decoration: none;
+}
+
+.nhsuk-button::-moz-focus-inner
+{
+  padding: 0;
+  border: 0;
+}
+
+.nhsuk-button:hover,.nhsuk-button:focus
+{
+  background-color: #00692f;
+}
+
+.nhsuk-button:active
+{
+  top: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.nhsuk-button::before
+{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -4px;
+  left: -2px;
+  background: transparent;
+}
+
+.nhsuk-button:active::before
+{
+  top: -4px;
+}
+
+.nhsuk-button--disabled,.nhsuk-button[disabled="disabled"],.nhsuk-button[disabled]
+{
+  opacity: 0.5;
+  background: #00823b;
+}
+
+.nhsuk-button--disabled:hover,.nhsuk-button[disabled="disabled"]:hover,.nhsuk-button[disabled]:hover
+{
+  background-color: #00823b;
+  cursor: default;
+}
+
+.nhsuk-button--disabled:focus,.nhsuk-button[disabled="disabled"]:focus,.nhsuk-button[disabled]:focus
+{
+  outline: none;
+}
+
+.nhsuk-button--disabled:active,.nhsuk-button[disabled="disabled"]:active,.nhsuk-button[disabled]:active
+{
+  top: 0;
+  -webkit-box-shadow: 0 2px 0 #003618;
+  box-shadow: 0 2px 0 #003618;
+}
+
+.nhsuk-button--start
+{
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1;
+  min-height: auto;
+  padding-top: 8px;
+  padding-right: 40px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  background-image: url("/assets/images/icon-pointer.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+@media (min-width: 40.0625em)
+{
+  .nhsuk-button--start
+  {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+}
+
+@media print
+{
+  .nhsuk-button--start
+  {
+    font-size: 18pt;
+    line-height: 1;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+{
+  .nhsuk-button--start
+  {
+    background-image: url("/assets/images/icon-pointer-2x.png");
+    background-size: 30px 19px;
+  }
+}
+
+.nhsuk-button
+{
+  padding-top: 9px;
+  padding-bottom: 6px;
+}
+
+.nhsuk-button--start
+{
+  padding-top: 9px;
+  padding-bottom: 6px;
+}

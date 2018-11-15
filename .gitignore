@@ -35,3 +35,10 @@ msbuild.wrn
 
 # Ignore ctags files, for the vim users 
 tags
+
+# Temporary working files
+controls
+scratch
+eb-745-notes.md
+._eb-745-notes.md
+*.swo
