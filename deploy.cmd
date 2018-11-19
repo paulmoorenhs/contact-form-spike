@@ -1,92 +1,106 @@
-#!/bin/bash
+@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
-#-----------------------
-# KUDU Deployment Script
-#-----------------------
- 
-# Helpers
- 
-exitWithMessageOnError () {
-  if [ ! $? -eq 0 ]; then
-    echo "An error has occurred during web site deployment."
-    echo $1
-    exit 1
-  fi
-}
- 
-# Prerequisites
-# -------------
- 
-# Verify node.js installed
-hash node 2>/dev/null
-exitWithMessageOnError "Missing node.js executable, please install node.js, if already installed make sure it can be reached from current environment."
- 
-# Setup
-# -----
- 
-SCRIPT_DIR="${BASH_SOURCE[0]%\\*}"
-SCRIPT_DIR="${SCRIPT_DIR%/*}"
-ARTIFACTS=$SCRIPT_DIR/../artifacts
-KUDU_SYNC_CMD=${KUDU_SYNC_CMD//\"}
- 
-if [[ ! -n "$DEPLOYMENT_SOURCE" ]]; then
-  DEPLOYMENT_SOURCE=$SCRIPT_DIR
-fi
- 
-if [[ ! -n "$NEXT_MANIFEST_PATH" ]]; then
-  NEXT_MANIFEST_PATH=$ARTIFACTS/manifest
- 
-  if [[ ! -n "$PREVIOUS_MANIFEST_PATH" ]]; then
-    PREVIOUS_MANIFEST_PATH=$NEXT_MANIFEST_PATH
-  fi
-fi
- 
-if [[ ! -n "$DEPLOYMENT_TARGET" ]]; then
-  DEPLOYMENT_TARGET=$ARTIFACTS/wwwroot
-else
-  KUDU_SERVICE=true
-fi
- 
-if [[ ! -n "$KUDU_SYNC_CMD" ]]; then
-  # Install kudu sync
+:: ----------------------
+:: KUDU Deployment Script
+:: Version: 1.0.17
+:: ----------------------
+
+:: Prerequisites
+:: -------------
+
+:: Verify node.js installed
+where node 2>nul >nul
+IF %ERRORLEVEL% NEQ 0 (
+  echo Missing node.js executable, please install node.js, if already installed make sure it can be reached from current environment.
+  goto error
+)
+
+:: Setup
+:: -----
+
+setlocal enabledelayedexpansion
+
+SET ARTIFACTS=%~dp0%..\artifacts
+
+IF NOT DEFINED DEPLOYMENT_SOURCE (
+  SET DEPLOYMENT_SOURCE=%~dp0%.
+)
+
+IF NOT DEFINED DEPLOYMENT_TARGET (
+  SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot
+)
+
+IF NOT DEFINED NEXT_MANIFEST_PATH (
+  SET NEXT_MANIFEST_PATH=%ARTIFACTS%\manifest
+
+  IF NOT DEFINED PREVIOUS_MANIFEST_PATH (
+    SET PREVIOUS_MANIFEST_PATH=%ARTIFACTS%\manifest
+  )
+)
+
+IF NOT DEFINED KUDU_SYNC_CMD (
+  :: Install kudu sync
   echo Installing Kudu Sync
-  npm install kudusync -g --silent
-  exitWithMessageOnError "npm failed"
- 
-  if [[ ! -n "$KUDU_SERVICE" ]]; then
-    # In case we are running locally this is the correct location of kuduSync
-    KUDU_SYNC_CMD=kuduSync
-  else
-    # In case we are running on kudu service this is the correct location of kuduSync
-    KUDU_SYNC_CMD=$APPDATA/npm/node_modules/kuduSync/bin/kuduSync
-  fi
-fi
- 
-if [ "x$DEPLOYMENT_TEMP" = x ]; then
-    DEPLOYMENT_TEMP=/tmp/`date +%s`
-    CLEAN_LOCAL_DEPLOYMENT_TEMP=true
-fi
- 
-if [ "x$CLEAN_LOCAL_DEPLOYMENT_TEMP" = xtrue ]; then
-    rm -rf "$DEPLOYMENT_TEMP"
-    mkdir "$DEPLOYMENT_TEMP"
-fi
+  call npm install kudusync -g --silent
+  IF !ERRORLEVEL! NEQ 0 goto error
 
-# Deployment
- 
+  :: Locally just running "kuduSync" would also work
+  SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
+)
+IF NOT DEFINED DEPLOYMENT_TEMP (
+  SET DEPLOYMENT_TEMP=%temp%\___deployTemp%random%
+  SET CLEAN_LOCAL_DEPLOYMENT_TEMP=true
+)
+
+IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
+  IF EXIST "%DEPLOYMENT_TEMP%" rd /s /q "%DEPLOYMENT_TEMP%"
+  mkdir "%DEPLOYMENT_TEMP%"
+)
+
+IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
+SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
+:MsbuildPathDefined
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Deployment
+:: ----------
+
 echo Handling ASP.NET Core Web Application deployment.
- 
-# 1. Restore nuget packages
-dotnet restore "WebApplication1/WebApplication1.csproj"
-exitWithMessageOnError "dotnet restore failed"
- 
-# 2. Build and publish
-dotnet publish "WebApplication1/WebApplication1.csproj" --output "$DEPLOYMENT_TEMP" --configuration Release
-exitWithMessageOnError "dotnet publish failed"
- 
-# 3. KuduSync
-"$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_TEMP" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-exitWithMessageOnError "Kudu Sync failed"
- 
- 
-echo "Finished successfully."
+
+:: 1. Restore nuget packages
+call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\nhs-contact.csproj"
+IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 2. Build and publish
+call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%\nhs-contact.csproj" --output "%DEPLOYMENT_TEMP%" --configuration Release
+IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 3. KuduSync
+call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+IF !ERRORLEVEL! NEQ 0 goto error
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+goto end
+
+:: Execute command routine that will echo out when error
+:ExecuteCmd
+setlocal
+set _CMD_=%*
+call %_CMD_%
+if "%ERRORLEVEL%" NEQ "0" echo Failed exitCode=%ERRORLEVEL%, command=%_CMD_%
+exit /b %ERRORLEVEL%
+
+:error
+endlocal
+echo An error has occurred during web site deployment.
+call :exitSetErrorLevel
+call :exitFromFunction 2>nul
+
+:exitSetErrorLevel
+exit /b 1
+
+:exitFromFunction
+()
+
+:end
+endlocal
+echo Finished successfully.
