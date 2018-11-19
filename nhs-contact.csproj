@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web" >
+<Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
     </PropertyGroup>
@@ -8,7 +8,19 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="Static\**\*.*" CopyToPublsihDirectory="Always" />
+      <Content Include="static\**\*.*" CopyToPublsihDirectory="Always" />
+      <Content Update="Static\nhsuk-0.1.1.css">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="Static\nhsuk-0.1.1.js">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="Static\nhsuk-forms.css">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="Static\nhsuk-forms.js">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
         
 </Project>
