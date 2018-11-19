@@ -6,5 +6,9 @@
     <ItemGroup>
         <Packagereference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Static\**\*.*" CopyToPublsihDirectory="PreserveNewest" />
+    </ItemGroup>
         
 </Project>
