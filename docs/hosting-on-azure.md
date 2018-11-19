@@ -15,6 +15,10 @@
   - Resource group              - ```az group create --name myResourceGroup --location "West Europe"```
   - Service Plan                - ```az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux```
   - Web app                     - ```az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|2.0" --deployment-local-git``` 
+  - Hook to git repository      - ??
+    - Required creating a kudud deployment script
+    - installed kuduscrip tools - ```npm install kuduscript -g```
+    - created kudud scripts     - ```kuduscript --no-solution --aspNetCore .\nhs-contact.csproj```
 
 ## Resouces
 
@@ -33,6 +37,8 @@ Q. What naming convension should be used for things?
     just picked one and got on with it.
 
 Q. What is the deployment user?
+
+
 
 
 ## Glossary
