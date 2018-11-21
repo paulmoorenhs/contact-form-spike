@@ -802,3 +802,181 @@
   padding-top: 9px;
   padding-bottom: 6px;
 }
+
+/* Radio groups */
+
+.nhsuk-radios {
+    margin-bottom: 30px
+}
+
+.nhsuk-radios__item {
+	font-family: "nta", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 400;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.25;
+	display: block;
+	position: relative;
+	min-height: 40px;
+	margin-bottom: 10px;
+	padding: 0 0 0 40px;
+	clear: left
+}
+@media print {
+	.nhsuk-radios__item {
+		font-family: sans-serif
+	}
+}
+@media (min-width: 40.0625em) {
+	.nhsuk-radios__item {
+		font-size: 19px;
+		font-size: 1.1875rem;
+		line-height: 1.31579
+	}
+}
+@media print {
+	.nhsuk-radios__item {
+		font-size: 14pt;
+		line-height: 1.15
+	}
+}
+.nhsuk-radios__item:last-child, .nhsuk-radios__item:last-of-type {
+	margin-bottom: 0
+}
+.nhsuk-radios__input {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	margin: 0;
+	opacity: 0;
+
+    background: white;
+}
+.nhsuk-radios__label {
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 8px 15px 5px;
+	cursor: pointer;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation
+}
+.nhsuk-radios__hint {
+	display: block;
+	padding-right: 15px;
+	padding-left: 15px
+}
+.nhsuk-radios__input+.nhsuk-radios__label::before {
+	content: "";
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	background: transparent
+}
+.nhsuk-radios__input+.nhsuk-radios__label::after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 0;
+	height: 0;
+	border: 10px solid currentColor;
+	border-radius: 50%;
+	opacity: 0;
+	background: currentColor
+}
+.nhsuk-radios__input:focus+.nhsuk-radios__label::before {
+	outline: 3px solid transparent;
+	outline-offset: 3px;
+	-webkit-box-shadow: 0 0 0 4px #ffbf47;
+	box-shadow: 0 0 0 4px #ffbf47
+}
+.nhsuk-radios__input:checked+.nhsuk-radios__label::after {
+	opacity: 1
+}
+.nhsuk-radios__input:disabled, .nhsuk-radios__input:disabled+.nhsuk-radios__label {
+	cursor: default
+}
+.nhsuk-radios__input:disabled+.nhsuk-radios__label {
+	opacity: .5
+}
+@media (min-width: 40.0625em) {
+	.nhsuk-radios--inline:after {
+		content: "";
+		display: block;
+		clear: both
+	}
+	.nhsuk-radios--inline .nhsuk-radios__item {
+		margin-right: 20px;
+		float: left;
+		clear: none
+	}
+}
+.nhsuk-radios--inline.nhsuk-radios--conditional .nhsuk-radios__item {
+	margin-right: 0;
+	float: none
+}
+.nhsuk-radios__divider {
+	font-family: "nta", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 400;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #0b0c0c;
+	width: 40px;
+	margin-bottom: 10px;
+	text-align: center
+}
+@media print {
+	.nhsuk-radios__divider {
+		font-family: sans-serif
+	}
+}
+@media (min-width: 40.0625em) {
+	.nhsuk-radios__divider {
+		font-size: 19px;
+		font-size: 1.1875rem;
+		line-height: 1.31579
+	}
+}
+@media print {
+	.nhsuk-radios__divider {
+		font-size: 14pt;
+		line-height: 1.15
+	}
+}
+@media print {
+	.nhsuk-radios__divider {
+		color: #000
+	}
+}
+.nhsuk-radios__conditional {
+	margin-bottom: 15px;
+	margin-left: 18px;
+	padding-left: 33px;
+	border-left: 4px solid #bfc1c3
+}
+@media (min-width: 40.0625em) {
+	.nhsuk-radios__conditional {
+		margin-bottom: 20px
+	}
+}
+.js-enabled .nhsuk-radios__conditional--hidden {
+	display: none
+}
+.nhsuk-radios__conditional>:last-child {
+	margin-bottom: 0
+}
