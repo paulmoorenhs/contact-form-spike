@@ -1,0 +1,76 @@
+- ( need design ) Mandatory field indication
+- Header size difference to live site.
+  - Need to know if I have done something wrong, css issue of meant to be that size.
+- (done)Second level header (h2)
+  - (done)Before you contact us
+  - (done)Your message to us
+- ( need design ) Drop downs
+  - I have done some research into this and my understanding is:
+     - less than five items it should be check boxes or radio group.
+     - five to twenty six items drop down
+     - more than twenty six items context
+  - I will defer to design on this.
+- (done) Privacy policy should link to ( https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy-policy/ )
+- Favicon
+- ( need content ) Title wording
+- (done) breadcrumbs should be Home > Contact us
+- (done) Examples should be a reveal
+
+
+
+
+
+
+
+
+
+
+
+
+
+Feedback - I can't see any indication of which fields are optional/required? Is that to come or part of design standards etc.?
+
+Paul Moore [4:52 PM]
+Yep, need to ask design dudes about how that should be displayed as not seen an example of that stuff yet. (edited)
+
+Laura Hajba [4:52 PM]
+Thanks @paulmoore wording looks good so far
+
+Robin Faulks [4:52 PM]
+:+1:
+
+Laura Hajba [4:52 PM]
+Agree with @Robin Faulks about what should be optional/mandatory being included
+
+
+Robin Faulks [4:53 PM]
+@paulmoore Feedback - May be just due to azure platform, but header sizing seems slightly different to live site. When you flick between the two you can see the difference in height etc.
+
+
+Laura Hajba [4:53 PM]
+Plus the 'What are you contacting us about?' needs to be a second-level heading like 'Before you contact us', as does 'your message to us'.
+
+The idea with the examples section is that it would be a dropdown reveal/accordion but I know the functionality is to be added and design to be confirmed
+Will let you know as soon as I know on updates to wording
+
+
+
+Robin Faulks [4:55 PM]
+@laurahajba Aren't those two phrases the field label/questions though? Same as 'Your name'?
+@paulmoore Feedback - Need to remember to add the correct favicon for the page, e.g. the same mini NHS lozenge as the live site.
+
+Laura Hajba [4:57 PM]
+@Robin Faulks Yes they are the field labels/questions but I would think they need to stand out more than they currently do? (edited)
+
+Robin Faulks [4:58 PM]
+@laurahajba Content/design decision on that one then.
+
+Robin Faulks [5:00 PM]
+@paulmoore Feedback - Privacy Policy Agreement section needs to link to the NHS App privacy policy - https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy-policy/
+nhs.uk
+NHS App - Privacy policy
+Aug 31st
+https://www.nhs.uk/static/nhsuk_conditions/img/open-graph.2ac2e47ec5ac.png
+
+Laura Hajba [5:01 PM]
+@Robin Faulksthanks just to make sure everyone can see the questions clearly, and thanks :point_up_2: I was going to mention we need to add that link too

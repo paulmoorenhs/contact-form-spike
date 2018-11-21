@@ -108,21 +108,29 @@ Send message
 
     <div class="nhsuk-form-group">
         <h2>Your message for us</h2>
+
         <span id="more-detail-hint" class="nhsuk-hint">
-            Do not include personal or medical information. We'll aim to respond within 4 hours.
-        </span>
-        <span id="more-detail-hint" class="nhsuk-hint">
-            <p>
-            Examples of personal or medical information:
-            </p>
-            <ul class="nhsuk-contents-list__list">
-                <li class="nhsuk-contents-list__item">NHS number</li>
-                <li class="nhsuk-contents-list__item">Home address</li>
-                <li class="nhsuk-contents-list__item">Telephone number</li>
-                <li class="nhsuk-contents-list__item">Date of birth</li>
-                <li class="nhsuk-contents-list__item">Nathional insurance number</li>
-                <li class="nhsuk-contents-list__item">A medical diagnosis</li>
-            </ul>
+
+            <details class="nhsuk-details">
+
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text">
+                        Examples of personal or medical information
+                    </span>
+                </summary>
+
+                <div class="nhsuk-details__text">
+                    <ul class="nhsuk-contents-list__list">
+                        <li class="nhsuk-contents-list__item">NHS number</li>
+                        <li class="nhsuk-contents-list__item">Home address</li>
+                        <li class="nhsuk-contents-list__item">Telephone number</li>
+                        <li class="nhsuk-contents-list__item">Date of birth</li>
+                        <li class="nhsuk-contents-list__item">Nathional insurance number</li>
+                        <li class="nhsuk-contents-list__item">A medical diagnosis</li>
+                    </ul>
+                </div>
+
+            </details>
         </span>
         <textarea class="nhsuk-textarea js-character-count " id="message" name="message" rows="8" aria-describedby="with-hint-hint"></textarea> 
     </div>
