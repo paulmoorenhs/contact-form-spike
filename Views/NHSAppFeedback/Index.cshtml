@@ -1,8 +1,7 @@
 @{
-    ViewData["Title"] = "NHS App Feedback";
+    ViewData["Title"] = "Contact us about the NHS App";
     ViewData["Description"] = new String[] {
         "Please provide as much information as possible in order for us to process your feedback more effectively.",
-        "Please do not enter patient or personal data (such as NHS number, home address, telephone number, date of birth, National Insurance number etc.)"
     };
 }
 
@@ -11,21 +10,45 @@
 
 ## Form layout:
 
-- What do you want to tell us about?
-    - Mandatory 
-    - Dropdown : Feedback, Issue, Other
-    - Enter You answer
-      - This is only displayed if "What do you wnt to tell us about?"
-        is set to 'Other'.
-      - Q. If this is displayed is this mandatory?
-- Your comments
-  - Mandatory
-  - Maximum length 1500 characters
-- Your name
-- Your email address
-    - Mandatory
-- Privacy Policy Confirmation
-  - Mandatory.
+# Contact us about the NHS App
+
+Please note you cannot get medical advice using this form. If require medical attention call 111.
+
+## Before you contact us
+For help with common problems, check our help and support page.
+
+## What are you contacting us about?
+
+a problem with the app 
+a way to improve the app 
+something else
+
+## Your message for us 
+Do not include personal or medical information. We will aim to respond within 4 hours.  
++ Examples of personal or medical information 
+
+- NHS number
+- Home address
+- Telephone number
+- Date of birth 
+- National insurance number
+- A medical diagnosis 
+
+## Full name (optional)
+[						]
+
+## Email address
+We’ll only contact you about this. You’ll be sent a short satisfaction survey once we have replied.
+[						]
+
+## Privacy policy agreement
+You must confirm you have read and understood our privacy policy before sending. 
+
+[ ] I have read and understood the privacy policy. 
+
+Send message 
+
+
 
 
 ## Todo
@@ -39,90 +62,91 @@
 *@
 
 <form>
+
+    <!-- Disclaimer -->
+
     <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="about">
-            What do you want to tell us about?
-        </label>
-        <select class="nhsuk-select" id="about" name="about">
-          <option value="feedback" selected>Feedback</option>
-          <option value="issue">Issue</option>
-          <option value="other" data-conditional-input="about_other">Other</option>
-        </select>
+        <h2>Before you contact us</h2>
+        <p>
+            For help with common problems, check our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help-and-support/"> help and support page</a>.
+        </p>
     </div>
 
 
-@*  Todo, optional field:
+    <!-- Contact reason -->
 
-    1. Get the grey marker to display
-    2. Size the input?? may not be needed
+    @* Todo - What are you contacting us about *@
 
-    <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contact-by-text" type="tel">
-*@
 
-    <div class="nhsuk-option__conditional nhsuk-option__conditional--hidden" data-conditional-input-for="about_other">
-        <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="about_other">
-                Enter your answer
-            </label>
-            <input class="nhsuk-input" id="about_other" name="about_other" type="text">
-        </div>
-    </div>
+    <!-- Message -->
 
     <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="about_other">
-           Page URL 
-        </label>
-        <input class="nhsuk-input" id="about_other" name="about_other" type="text">
-    </div>
-
-    <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="comments">
-            Your comments
+        <label class="nhsuk-label" for="message">
+            Your message for us
         </label>
         <span id="more-detail-hint" class="nhsuk-hint">
-            maximum length 1500 characters
+            Do not include personal or medical information. We'll aim to respond within 4 hours.
         </span>
         <span id="more-detail-hint" class="nhsuk-hint">
-            Please do not enter patient or personal data (such as NHS number, home address, telephone number, date of birth, National Insurance number etc.
+            <p>
+            Examples of personal or medical information:
+            </p>
+            <ul>
+                <li>NHS number</li>
+                <li>Home address</li>
+                <li>Telephone number</li>
+                <li>Date of birth</li>
+                <li>Nathional insurance number</li>
+                <li>A medical diagnosis</li>
+            </ul>
         </span>
-        <textarea class="nhsuk-textarea js-character-count " id="comments" name="comments" rows="8" aria-describedby="with-hint-hint"></textarea> 
+        <textarea class="nhsuk-textarea js-character-count " id="message" name="message" rows="8" aria-describedby="with-hint-hint"></textarea> 
     </div>
 
+
+    <!-- Full name -->
+
     <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="your_name">
-            Your name
+        <label class="nhsuk-label" for="full_name">
+            Full name
         </label>
-        <input class="nhsuk-input" id="your_name" name="your_name" type="text">
+        <input class="nhsuk-input" id="full_name" name="full_name" type="text">
     </div>
+
+
+    <!-- Email address --> 
 
     <div class="nhsuk-form-group">
         <label class="nhsuk-label" for="email">
-            Your Email address
+            Email address
         </label>
         <span id="email-hint" class="nhsuk-hint">
-            We will only use your email address to communicate with you on the issue you have reported. Once resolved we will send you a short satisfaction survey to help us improve the service we provide
+            We’ll only contact you about this. You’ll be sent a short satisfaction survey once we have replied.
         </span>
         <input class="nhsuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
     </div>
 
+
+    <!-- Privacy policy confirmatin -->
+
     <div class="nhsuk-form-group">
         <label class="nhsuk-label">
-            You must confirm you have read and understood the privacy policy before submitting
+            Privacy policy agreement
         </label>
         <span id="email-hint" class="nhsuk-hint">
-            You can find more information about your rights and how we handle your data under the "NHS App Privacy Policy" section
+            You must confirm you have read and understood our privacy policy before sending. 
         </span>
         <div class="nhsuk-checkboxes">
             <div class="nhsuk-checkboxes__item">
                 <!-- todo-design: Tick is not styled correctly -->
                 <input class="nhsuk-checkboxes__input" id="privacy_policy_confirmed" name="privacy_policy_confirmed" type="checkbox" value="confirmed" >
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="privacy_policy_confirmed">
-                    I have read and understood the privacy policy and terms and conditions.
+                    I have read and understood the privacy policy.
                 </label>
             </div>
         </div>
     </div>
 
-    <button type="submit" class="nhsuk-button">Submit</button>
+    <button type="submit" class="nhsuk-button">Send message</button>
 
 </form>

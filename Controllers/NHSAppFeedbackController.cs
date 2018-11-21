@@ -9,7 +9,6 @@ namespace nhs.contacts
         [HttpGet("/nhs-app-feedback")]
         public IActionResult Index()
         {
-            //return Content("nhs-app-feedback");
             return View();
         }
 
