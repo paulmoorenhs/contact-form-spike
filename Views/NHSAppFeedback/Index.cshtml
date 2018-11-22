@@ -1,7 +1,8 @@
 @{
     ViewData["Title"] = "Contact us about the NHS App";
     ViewData["Description"] = new String[] {
-        "Please provide as much information as possible in order for us to process your feedback more effectively.",
+        "For emergency medical attention, please dial 999 or attend your local accident and emergency department if you are able to do so.",
+        "If you require non-urgent medical advice please contact your <a href='https://www.nhs.uk/service-search' target='_blank'>GP, your local NHS walk-in or urgent care centre</a>, <a href='https://www.england.nhs.uk/ourwork/pe/nhs-111/' target='_blank'>call NHS 111</a> or visit the <a href='https://www.nhs.uk' target='_blank'>NHS website</a> for health and lifestyle advice.",
     };
 }
 
@@ -87,18 +88,27 @@ Send message
             <label class="nhsuk-label nhsuk-radios__label" for="contact-reason-1">
               a problem with the app
             </label>
+            <span id="contact-reason-1-hint" class="nhsuk-hint nhsuk-radio-hint">
+                e.g. I can't log in
+            </span>
           </div>
           <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="contact-reason-2" name="contact-reason" type="radio" value="improve">
             <label class="nhsuk-label nhsuk-radios__label" for="contact-reason-2">
               a way to improve the app
             </label>
+            <span id="contact-reason-2-hint" class="nhsuk-hint nhsuk-radio-hint">
+                e.g. I'd like to talk to a doctor through the app
+            </span>
           </div>
           <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="contact-reason-3" name="contact-reason" type="radio" value="other">
             <label class="nhsuk-label nhsuk-radios__label" for="contact-reason-3">
               something else
             </label>
+            <span id="contact-reason-3-hint" class="nhsuk-hint nhsuk-radio-hint">
+                e.g. I have a query about how my data is used
+            </span>
           </div>
         </div>
     </div>
@@ -110,7 +120,7 @@ Send message
         <h2>Your message for us</h2>
 
         <p>
-            Do not include personal or medical information. We will aim to respond within 4 hours. 
+            Do not include personal or medical information in your message. We will aim to respond within 4 hours. 
         </p>
 
         <span id="more-detail-hint" class="nhsuk-hint">
@@ -146,6 +156,9 @@ Send message
         <label class="nhsuk-label" for="full_name">
             Full name (optional)
         </label>
+        <span id="full_name_hint" class="nhsuk-hint">
+            We will use the name you provide in any replies to your message. We will not use your name for any other purpose.
+        </span>
         <input class="nhsuk-input" id="full_name" name="full_name" type="text">
     </div>
 
@@ -157,7 +170,7 @@ Send message
             Email address
         </label>
         <span id="email-hint" class="nhsuk-hint">
-            We’ll only contact you about this. You’ll be sent a short satisfaction survey once we have replied.
+           we will use your email address to reply and invite you to complete a voluntary short satisfaction survey. We will not use your email address for any other purpose. 
         </span>
         <input class="nhsuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
     </div>
